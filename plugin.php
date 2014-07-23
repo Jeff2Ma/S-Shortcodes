@@ -3,15 +3,11 @@
  * Plugin Name:S-Shortcodes
  * Plugin URI: http://devework.com/s-shortcodes.html
  * Description:短代码美化框，丰富排版，提供 10 种美化框。
- *
  * Version: 2.1.0
- *
  * Author:Jeff
  * Author URI: http://devework.com
- *
- * License: GNU General Public License v2.0
- * License URI: http://www.opensource.org/licenses/gpl-license.php
  */
+
 /* plugin-update */
 require 'plugin-updates/plugin-update-checker.php';
 $MyUpdateChecker = new PluginUpdateChecker(
