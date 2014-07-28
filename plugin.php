@@ -6,6 +6,7 @@
  * Version: 2.3.0
  * Author:Jeff
  * Author URI: http://devework.com
+ * 注意：插件需要在WordPress 3.9+ 版本方可正常运行！
  */
 
 register_activation_hook( __FILE__, 'devework_shortcodes_activation' );

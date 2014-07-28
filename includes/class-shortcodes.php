@@ -5,16 +5,18 @@ class Devework_Shortcodes {
      * 全局配置
      */
     function __construct() {
-	add_action( 'wp_enqueue_scripts', array( $this , 'enqueue_css' ) );
+    add_action( 'wp_enqueue_scripts', array( $this , 'enqueue_css' ) );
+    add_action( 'admin_enqueue_scripts', array( $this , 'enqueue_css' ) );
     add_action( 'wp_dashboard_setup', array( $this, 'register_dashboard_widget' ) );
-	add_action( 'init', array( $this, 'register_shortcodes' ) ) ;
-	add_filter( 'widget_text', 'do_shortcode' );
+    add_action( 'init', array( $this, 'register_shortcodes' ) ) ;
+    add_filter( 'widget_text', 'do_shortcode' );
     }
     /**
      * 添加样式
      */
     function enqueue_css() {
     wp_enqueue_style( 'devework-shortcodes', ACS_URL . 'includes/shortcodes.css', array(), ACS_VERSION );
+    wp_enqueue_style( 'devework-shortcodes-fontello', ACS_URL . 'includes/css/fontello.css', array(), ACS_VERSION );
     }
 
     /**
@@ -62,7 +64,7 @@ class Devework_Shortcodes {
      */
     function register_shortcodes() {
 
-	add_shortcode( 'box', array( $this , 'box_shortcode' ) );
+    add_shortcode( 'box', array( $this , 'box_shortcode' ) );
  }
 
     /**
@@ -70,33 +72,33 @@ class Devework_Shortcodes {
      * 使用例子：[box style="comment"]文本内容[/box]
      */
     function box_shortcode( $atts, $content = null ) {
-	$defaults = apply_filters( 'devework_box_shortcode_args',
-	    array(
-		'style' => 'grey'
-	    )
-	);
-	extract( shortcode_atts( $defaults, $atts ) );
-	return '<div class="dw-box dw-box-'. $style .'">'. self::remove_wpautop( $content ) .'</div>';
+    $defaults = apply_filters( 'devework_box_shortcode_args',
+        array(
+        'style' => 'grey'
+        )
+    );
+    extract( shortcode_atts( $defaults, $atts ) );
+    return '<div class="dw-box dw-box-'. $style .'"><i class="icon-'. $style .'"></i>'.  self::remove_wpautop( $content ) .'</div>';
     }
 
     /**
-     * 自动过滤 <p></p> and <br /> 这些html标签
+     * 自动过滤 <p></p> 、 <br /> 这些html标签
      */
     function remove_wpautop( $content ) {
-	$content = do_shortcode( shortcode_unautop( $content ) );
-	$content = preg_replace( '#^<\/p>|^<br \/>|<p>$#', '', $content );
-	return $content;
+    $content = do_shortcode( shortcode_unautop( $content ) );
+    $content = preg_replace( '#^<\/p>|^<br \/>|<p>$#', '', $content );
+    return $content;
     }
 
     /**
      * 清楚浮动
      */
     function clearfloat( $last ) {
-	$return = '';
+    $return = '';
 
-	if( $last ) $return = '<div style="clear:both;"></div>';
+    if( $last ) $return = '<div style="clear:both;"></div>';
 
-	return $return;
+    return $return;
     }
 
 }
@@ -109,5 +111,27 @@ function dw_shortcode_quicktags() {
     );
 }
 add_action('admin_print_scripts', 'dw_shortcode_quicktags');
+
+
+// 短代码可视化插入按钮 since v.2.3
+function dw_add_mce_button() {
+    if ( !current_user_can( 'edit_posts' ) && !current_user_can( 'edit_pages' ) ) {
+        return;
+    }
+    if ( 'true' == get_user_option( 'rich_editing' ) ) {
+        add_filter( 'mce_external_plugins', 'dw_add_tinymce_plugin' );
+        add_filter( 'mce_buttons', 'dw_register_mce_button' );
+    }
+}
+add_action('admin_head', 'dw_add_mce_button');
+
+function dw_add_tinymce_plugin( $plugin_array ) {
+    $plugin_array['my_mce_button'] = plugins_url('',__FILE__).'/mce-button.js';
+    return $plugin_array;
+}
+function dw_register_mce_button( $buttons ) {
+    array_push( $buttons, 'my_mce_button' );
+    return $buttons;
+}
 
 ?>

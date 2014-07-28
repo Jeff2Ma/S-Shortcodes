@@ -1,0 +1,6 @@
+
+.icon-alert:before { content: '\e800'; } /* '' */
+.icon-warning:before { content: '\e801'; } /* '' */
+.icon-download:before { content: '\e802'; } /* '' */
+.icon-tip:before { content: '\e803'; } /* '' */
+.icon-info:before { content: '\e804'; } /* '' */
