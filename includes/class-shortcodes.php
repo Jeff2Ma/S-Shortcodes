@@ -1,13 +1,8 @@
 <?php
-/**
- * This file contains the Devework_Shortcodes class.
- *
- * This class handles the registration of the shortcodes, and loading
- * of the scripts necessary for its operation.
- */
+
 class Devework_Shortcodes {
     /**
-     * Construct Method
+     * 全局配置
      */
     function __construct() {
 	add_action( 'wp_enqueue_scripts', array( $this , 'enqueue_css' ) );
@@ -16,28 +11,21 @@ class Devework_Shortcodes {
 	add_filter( 'widget_text', 'do_shortcode' );
     }
     /**
-     * Load the necessary css, which can be overriden by creating your own file and placing it in
-     * the root of your theme's folder
-     *
-     * @since 0.9
+     * 添加样式
      */
     function enqueue_css() {
     wp_enqueue_style( 'devework-shortcodes', ACS_URL . 'includes/shortcodes.css', array(), ACS_VERSION );
     }
 
     /**
-     * Adds a news widget to the dashboard.
-     *
-     * @since 1.0
+     * 添加一个小工具到WordPress后台的dashboard
      */
     function register_dashboard_widget() {
         wp_add_dashboard_widget( 'dw-shortcodes', 'S-shortcodes 更新消息', array( $this, 'dashboard_widget_output' ) );
     }
 
     /**
-     * Output for the dashboard widget
-     *
-     * @since 1.0
+     * dashboard小工具的输出样式
      */
     function dashboard_widget_output() {
 
@@ -70,10 +58,7 @@ class Devework_Shortcodes {
     }
 
     /**
-     * Register all the shortcodes
-     *
-     * @since 0.9
-     * @version 1.0
+     * 注册短代码
      */
     function register_shortcodes() {
 
@@ -81,44 +66,21 @@ class Devework_Shortcodes {
  }
 
     /**
-     * Shortcode to produce a styled box
-     *
-     * @param type $atts
-     * @param type $content
-     * @return type
-     *
-     * @since 0.9
-     * @example [box style="comment"]my content[/box]
+     * box短代码
+     * 使用例子：[box style="comment"]文本内容[/box]
      */
     function box_shortcode( $atts, $content = null ) {
-	/*
-	Supported Attributes
-	    style   =>  blue, green, grey, red, tan, yellow	-> creates boxes using only those colors
-		OR
-	    style   =>  alert, comment, download, info, tip	-> boxes with the corresponding icon to the left of the text
-	*/
 	$defaults = apply_filters( 'devework_box_shortcode_args',
 	    array(
 		'style' => 'grey'
 	    )
 	);
 	extract( shortcode_atts( $defaults, $atts ) );
-
 	return '<div class="dw-box dw-box-'. $style .'">'. self::remove_wpautop( $content ) .'</div>';
     }
 
-    
-    /******************************************************
-     *  Helper Functions
-     ******************************************************/
-
     /**
-     * Remove automatic <p></p> and <br /> tags from content
-     *
-     * @param type $content
-     * @return string
-     *
-     * @since 0.9
+     * 自动过滤 <p></p> and <br /> 这些html标签
      */
     function remove_wpautop( $content ) {
 	$content = do_shortcode( shortcode_unautop( $content ) );
@@ -127,12 +89,7 @@ class Devework_Shortcodes {
     }
 
     /**
-     * Properly clear our floats after the columns
-     *
-     * @param string $last
-     * @return string
-     *
-     * @since 1.0.4
+     * 清楚浮动
      */
     function clearfloat( $last ) {
 	$return = '';
