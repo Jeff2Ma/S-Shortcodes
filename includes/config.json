@@ -1,10 +1,11 @@
 {
   "name": "",
-  "css_prefix_text": "icon-",
+  "css_prefix_text": "dwicon-",
   "css_use_suffix": false,
   "hinting": true,
   "units_per_em": 1000,
   "ascent": 850,
+  "copyright": "Jeffma",
   "glyphs": [
     {
       "uid": "fa2a45d19f8b42ac74c5b0d3821b9b54",

@@ -1,5 +1,5 @@
 ﻿.dw-box{text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border: 1px solid;clear:both;margin:15px 0}
-.dw-box i {font-size: 26px;float: left;position:relative;left:-10px}
+.dw-box i {font-size: 26px;float: left;position:relative;left:-10px;top: -10px;}
 .dw-box-blue,.dw-box-green,.dw-box-grey,.dw-box-red,.dw-box-tan,.dw-box-yellow{padding:15px}
 .dw-box-blue{background-color:#dbe7f8;border-color:#b7d2f2}
 .dw-box-green{background-color:#f2f9e5;border-color:#ddedbc}

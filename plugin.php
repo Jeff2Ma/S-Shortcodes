@@ -3,7 +3,7 @@
  * Plugin Name:S-Shortcodes
  * Plugin URI: http://devework.com/s-shortcodes.html
  * Description:短代码美化框，丰富排版，提供 10 种美化框。
- * Version: 2.3.0
+ * Version: 2.4.0
  * Author:Jeff
  * Author URI: http://devework.com
  * 注意：插件需要在WordPress 3.9+ 版本方可正常运行！
@@ -25,7 +25,7 @@ function devework_shortcodes_init() {
     global $_devework_shortcodes;
 
     define( 'ACS_URL', plugin_dir_url( __FILE__ ) );
-    define( 'ACS_VERSION', '2.0.0' );
+    define( 'ACS_VERSION', '2.4.0' );
 
     /** Includes **/
     require_once( dirname( __FILE__ ) . '/includes/class-shortcodes.php' );

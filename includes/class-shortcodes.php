@@ -78,7 +78,7 @@ class Devework_Shortcodes {
         )
     );
     extract( shortcode_atts( $defaults, $atts ) );
-    return '<div class="dw-box dw-box-'. $style .'"><i class="icon-'. $style .'"></i>'.  self::remove_wpautop( $content ) .'</div>';
+    return '<div class="dw-box dw-box-'. $style .'"><i class="dwicon-'. $style .'"></i>'.  self::remove_wpautop( $content ) .'</div>';
     }
 
     /**

@@ -6,7 +6,7 @@ function S_Shortpage(){?>
 .dw-box-menu ul{ width:520px} 
 .dw-box-menu li{list-style: none;padding-left: 20px;margin-bottom: 20px;background: url("/wp-content/plugins/S-Shortcodes/images/admin/page-16x16.png") no-repeat}
 </style>
-<div id="icon-themes" class="icon32"></div>
+<div id="dwicon-themes" class="icon32"></div>
 <div id="wpbody">
 <h2>S-shortcodes短代码提示</h2>
     <div class="dw-box-menu">
@@ -18,19 +18,19 @@ function S_Shortpage(){?>
     	<span style="color: #ff0000;"><h3>更多精彩内容欢迎关注：<a href="http://devework.com">DeveWork.com</a></h3></span>
 	<p>写文章时如果需要可以加入下列短代码（在“可视化”与“HTML”两种模式均可直接加入，“HTML”模式下有按钮使用。）</p>
 	
-      	<ul><div class="dw-box-alert dw-box"><i class="icon-alert"></i> 这里写内容，红色警示</div></ul>
+      	<ul><div class="dw-box-alert dw-box"><i class="dwicon-alert"></i> 这里写内容，红色警示</div></ul>
       	<li>短代码：<code>[box style="alert"]这里写内容[/box] </code></li>
 
-        <ul><div class="dw-box-warning dw-box"><i class="icon-warning"></i> 这里写内容，黄色提醒</div></ul>
+        <ul><div class="dw-box-warning dw-box"><i class="dwicon-warning"></i> 这里写内容，黄色提醒</div></ul>
         <li>短代码：<code>[box style="warning"]这里写内容[/box] </code></li>
 
-        <ul><div class="dw-box-download dw-box"><i class="icon-download"></i> 这里写内容，蓝色下载</div></ul>
+        <ul><div class="dw-box-download dw-box"><i class="dwicon-download"></i> 这里写内容，蓝色下载</div></ul>
         <li>短代码：<code>[box style="download"]这里写内容[/box] </code></li>
 
-        <ul><div class="dw-box-info dw-box"><i class="icon-info"></i> 这里写内容，灰色公告</div></ul>
+        <ul><div class="dw-box-info dw-box"><i class="dwicon-info"></i> 这里写内容，灰色公告</div></ul>
         <li>短代码：<code>[box style="info"]这里写内容[/box] </code></li>
 
-        <ul><div class="dw-box-tip dw-box"><i class="icon-tip"></i> 这里写内容，绿色提示</div></ul>
+        <ul><div class="dw-box-tip dw-box"><i class="dwicon-tip"></i> 这里写内容，绿色提示</div></ul>
         <li>短代码：<code>[box style="tip"]这里写内容[/box] </code></li>
 
         <ul><div class="dw-box-blue dw-box"> 这里写内容</div></ul>
