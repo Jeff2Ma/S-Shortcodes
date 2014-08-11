@@ -11,3 +11,5 @@
 目前版本最新版本是2.4.0
 
 http://devework.com/s-shortcodes-2-4-0.html
+
+~Current Version:2.4~
